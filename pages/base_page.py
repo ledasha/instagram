@@ -24,8 +24,8 @@ class BasePage():
 
     def get_text(self, locator, text):
         expected_condition = ec.text_to_be_present_in_element(locator, text)
-        if WebDriverWait(self.driver, 10).until(expected_condition, message="Unable to find element"):
-            return self.get_element(locator).text
+        WebDriverWait(self.driver, 10).until(expected_condition, message="Unable to find element")
+        return self.get_element(locator).text
 
     def on_this_page(self, *args):
         for locator in args:
